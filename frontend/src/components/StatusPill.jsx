@@ -1,10 +1,22 @@
-const STATUS_MAP = {
-  compliant: { cls: "safe", text: "Compliant" },
-  needs_review: { cls: "warn", text: "Needs review" },
-  non_compliant: { cls: "risk", text: "Non-compliant" },
-};
-
 export default function StatusPill({ status }) {
-  const info = STATUS_MAP[status] || { cls: "warn", text: status };
-  return <span className={`pill ${info.cls}`}>{info.text}</span>;
+  const norm = (status || "").toLowerCase().replace(/[\s-]/g, "_");
+
+  const label =
+    {
+      compliant: "Compliant · Low Risk",
+      safe: "Compliant · Low Risk",
+      needs_review: "Needs Review · Warning",
+      warn: "Needs Review · Warning",
+      non_compliant: "Non-Compliant · High Risk",
+      risk: "Non-Compliant · High Risk",
+    }[norm] || status;
+
+  const className =
+    norm === "compliant" || norm === "safe"
+      ? "pill compliant"
+      : norm === "needs_review" || norm === "warn"
+      ? "pill needs_review"
+      : "pill non_compliant";
+
+  return <span className={className}>{label}</span>;
 }

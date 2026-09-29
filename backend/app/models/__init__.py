@@ -1,8 +1,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, String
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, String, Uuid
 from sqlalchemy.orm import relationship
 
 from app.database import Base
@@ -11,7 +10,7 @@ from app.database import Base
 class VPNConfiguration(Base):
     __tablename__ = "vpn_configuration"
 
-    config_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    config_id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
     mode = Column(String, nullable=False)  # tunnel | transport
     cipher_suite = Column(String, nullable=False)  # AES-128 | AES-256 | AES-GCM | AES-CBC+HMAC
     dh_group = Column(String, nullable=False)
@@ -25,8 +24,8 @@ class VPNConfiguration(Base):
 class CaptureSession(Base):
     __tablename__ = "capture_session"
 
-    session_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    config_id = Column(UUID(as_uuid=True), ForeignKey("vpn_configuration.config_id"), nullable=False)
+    session_id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    config_id = Column(Uuid(as_uuid=True), ForeignKey("vpn_configuration.config_id"), nullable=False)
     pcap_path = Column(String, nullable=False)
     captured_at = Column(DateTime, default=datetime.utcnow)
 
@@ -39,8 +38,8 @@ class CaptureSession(Base):
 class PacketRecord(Base):
     __tablename__ = "packet_record"
 
-    packet_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    session_id = Column(UUID(as_uuid=True), ForeignKey("capture_session.session_id"), nullable=False)
+    packet_id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    session_id = Column(Uuid(as_uuid=True), ForeignKey("capture_session.session_id"), nullable=False)
     protocol = Column(String, nullable=False)  # IKE | ESP | AH
     ike_version = Column(String, nullable=True)
     direction = Column(String, nullable=False)  # inbound | outbound
@@ -51,8 +50,8 @@ class PacketRecord(Base):
 class ClassificationResult(Base):
     __tablename__ = "classification_result"
 
-    result_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    session_id = Column(UUID(as_uuid=True), ForeignKey("capture_session.session_id"), unique=True, nullable=False)
+    result_id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    session_id = Column(Uuid(as_uuid=True), ForeignKey("capture_session.session_id"), unique=True, nullable=False)
     predicted_cipher = Column(String, nullable=False)
     predicted_mode = Column(String, nullable=False)
     predicted_dh_group = Column(String, nullable=True)
@@ -64,8 +63,8 @@ class ClassificationResult(Base):
 class SecurityAssessment(Base):
     __tablename__ = "security_assessment"
 
-    assessment_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    session_id = Column(UUID(as_uuid=True), ForeignKey("capture_session.session_id"), unique=True, nullable=False)
+    assessment_id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    session_id = Column(Uuid(as_uuid=True), ForeignKey("capture_session.session_id"), unique=True, nullable=False)
     risk_score = Column(Float, nullable=False)
     compliance_status = Column(String, nullable=False)  # compliant | non_compliant | needs_review
 
@@ -76,8 +75,8 @@ class SecurityAssessment(Base):
 class Report(Base):
     __tablename__ = "report"
 
-    report_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    assessment_id = Column(UUID(as_uuid=True), ForeignKey("security_assessment.assessment_id"), nullable=False)
+    report_id = Column(Uuid(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    assessment_id = Column(Uuid(as_uuid=True), ForeignKey("security_assessment.assessment_id"), nullable=False)
     report_type = Column(String, nullable=False)  # executive | technical
     generated_at = Column(DateTime, default=datetime.utcnow)
 
