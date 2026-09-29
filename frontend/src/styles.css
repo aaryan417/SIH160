@@ -1632,6 +1632,571 @@ tbody tr:hover {
   text-align: center;
 }
 
+/* ==========================================================================
+   Landing Page Styles (Hero, HUD Terminal, Pillars, Workflow)
+   ========================================================================== */
+
+.landing-container {
+  min-height: 100vh;
+  background-color: #060911;
+  position: relative;
+  overflow-x: hidden;
+  color: var(--text-primary);
+}
+
+.landing-glow-top {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.15), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landing-glow-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.12), transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landing-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Landing Top Navigation */
+.landing-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(6, 9, 17, 0.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landing-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.landing-brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.landing-brand-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.landing-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.landing-nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.landing-nav-link:hover {
+  color: var(--cyan);
+}
+
+.landing-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.landing-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+}
+
+.landing-cta-btn {
+  padding: 8px 18px;
+  font-size: 13px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+/* Landing Hero Section */
+.landing-hero {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 48px 60px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .landing-hero {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+  }
+}
+
+.landing-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.landing-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+}
+
+.landing-hero-headline {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 768px) {
+  .landing-hero-headline {
+    font-size: 38px;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 24px rgba(0, 240, 255, 0.2));
+}
+
+.landing-hero-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 58ch;
+  margin: 0 0 32px;
+}
+
+.landing-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btn-hero-primary {
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 28px rgba(0, 240, 255, 0.4);
+}
+
+.btn-hero-secondary {
+  padding: 14px 24px;
+  font-size: 14.5px;
+}
+
+.landing-metrics-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.landing-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-num {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.landing-metric-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border-subtle);
+}
+
+/* Landing Hero HUD Terminal Card */
+.landing-hero-hud {
+  position: relative;
+}
+
+.hud-card {
+  background: rgba(10, 16, 30, 0.85);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 240, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.hud-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff, #6366f1, transparent);
+}
+
+.hud-header {
+  padding: 12px 18px;
+  background: rgba(14, 22, 40, 0.8);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hud-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.hud-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.hud-dot.red { background: #ef4444; }
+.hud-dot.yellow { background: #f59e0b; }
+.hud-dot.green { background: #10b981; }
+
+.hud-title {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.hud-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.hud-body {
+  padding: 20px 22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hud-code-line {
+  display: flex;
+  gap: 10px;
+  line-height: 1.4;
+  flex-wrap: wrap;
+}
+
+.hud-k {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.hud-v {
+  color: #fff;
+}
+.hud-v.cyan { color: var(--cyan); font-weight: 600; text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+.hud-v.green { color: var(--safe); font-weight: 600; }
+
+.hud-radar-preview {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hud-radar-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.radar-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.radar-val {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+.radar-val.green { color: var(--safe); }
+
+/* Landing Section Shared */
+.landing-section {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 48px;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 8px 0 14px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Feature Cards Grid */
+.landing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.landing-feature-card {
+  background: rgba(14, 22, 38, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-feature-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.feature-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+.feature-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Pipeline Steps Grid */
+.pipeline-steps-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pipeline-step-card {
+  background: rgba(14, 22, 38, 0.75);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  flex: 1;
+  min-width: 170px;
+  transition: var(--transition);
+}
+
+.pipeline-step-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.pipeline-step-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.pipeline-step-card p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.pipeline-step-arrow {
+  color: var(--text-faint);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .pipeline-step-arrow {
+    display: none;
+  }
+}
+
+/* Footer CTA Box */
+.landing-footer-cta {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+}
+
+.footer-cta-card {
+  background: linear-gradient(135deg, rgba(14, 22, 38, 0.95), rgba(20, 32, 56, 0.95));
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 56px 40px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+.footer-cta-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.footer-cta-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 58ch;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+/* Landing Footer */
+.landing-footer {
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid var(--border-subtle);
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
 /* Print Overrides */
 @media print {
   body {
@@ -1669,3 +2234,701 @@ tbody tr:hover {
     padding: 20px;
   }
 }
+
+/* ==========================================================================
+   1. LANDING PAGE STYLES (VPN Analyzer - Cyber Threat Intelligence)
+   ========================================================================== */
+
+.vpn-landing-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: #020712;
+  color: #f8fafc;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ambient Radial Glows & Grid Background */
+.vpn-ambient-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(14, 165, 233, 0.15) 0%, rgba(3, 7, 18, 0) 55%),
+    radial-gradient(circle at 20% 45%, rgba(99, 102, 241, 0.12) 0%, rgba(3, 7, 18, 0) 45%),
+    radial-gradient(circle at 80% 55%, rgba(168, 85, 247, 0.1) 0%, rgba(3, 7, 18, 0) 45%);
+  z-index: 0;
+}
+
+.vpn-grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 35%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 35%, black 40%, transparent 85%);
+  z-index: 0;
+}
+
+/* Navbar */
+.vpn-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(2, 7, 18, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vpn-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vpn-shield-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(14, 165, 233, 0.2) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.3);
+}
+
+.vpn-brand-text {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.vpn-brand-text .highlight {
+  color: #38bdf8;
+}
+
+.vpn-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.vpn-nav-links a {
+  color: #94a3b8;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.vpn-nav-links a:hover {
+  color: #ffffff;
+}
+
+.vpn-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Button Variants */
+.vpn-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #2563eb;
+  color: #ffffff !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.vpn-btn-primary:hover {
+  background: #1d4ed8;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.vpn-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  color: #f1f5f9;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.vpn-btn-secondary:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.vpn-btn-lg {
+  padding: 12px 26px;
+  font-size: 14.5px;
+  border-radius: 9px;
+}
+
+/* Hero Section */
+.vpn-hero-section {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 24px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.vpn-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+}
+
+.tag-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+  animation: pulseCyan 2s infinite ease-in-out;
+}
+
+@keyframes pulseCyan {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.vpn-hero-title {
+  font-family: var(--font-display);
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+}
+
+.vpn-gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.vpn-hero-subtitle {
+  max-width: 620px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0 0 32px 0;
+}
+
+.vpn-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+/* Globe Container & Floating Tags */
+.vpn-globe-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 740px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 30px;
+}
+
+.digital-globe-svg-container {
+  width: 440px;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.digital-globe {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 40px rgba(14, 165, 233, 0.25));
+}
+
+/* Floating Protocol Tags (Matching Reference Image) */
+.floating-tag {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(11, 20, 38, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.floating-tag:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.tag-dot-blue {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.tag-dot-purple {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c084fc;
+  box-shadow: 0 0 8px #c084fc;
+}
+
+.tag-dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+}
+
+/* Exact Coordinates from Reference Image */
+.tag-openvpn {
+  top: 15px;
+  right: 55px;
+}
+
+.tag-wireguard {
+  top: 140px;
+  left: 20px;
+}
+
+.tag-ipsec {
+  top: 260px;
+  left: 50px;
+}
+
+.tag-ikev2 {
+  top: 155px;
+  right: 40px;
+}
+
+.tag-ssl {
+  top: 265px;
+  right: 60px;
+}
+
+/* Floating HUD Card on Globe Bottom Right */
+.floating-hud-card {
+  position: absolute;
+  right: 70px;
+  bottom: 20px;
+  z-index: 12;
+  background: rgba(7, 16, 33, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 12px;
+  padding: 14px 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 195px;
+}
+
+.hud-metric-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hud-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hud-indicator-dot.dot-green {
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.hud-indicator-dot.dot-cyan {
+  background: #00f0ff;
+  box-shadow: 0 0 6px #00f0ff;
+}
+
+.hud-indicator-dot.dot-purple {
+  background: #a855f7;
+  box-shadow: 0 0 6px #a855f7;
+}
+
+.hud-indicator-dot.dot-blue {
+  background: #60a5fa;
+  box-shadow: 0 0 6px #60a5fa;
+}
+
+.hud-metric-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+/* Section: Everything you need for VPN security analysis */
+.vpn-features-section {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 100%;
+  margin: 30px auto 50px;
+  padding: 0 24px;
+  text-align: left;
+}
+
+.vpn-section-heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.02em;
+}
+
+.vpn-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.vpn-feature-box {
+  background: rgba(11, 20, 38, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.vpn-feature-box:hover {
+  background: rgba(14, 25, 48, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vpn-box-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.vpn-box-icon.icon-blue {
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #3b82f6;
+}
+
+.vpn-box-icon.icon-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: #06b6d4;
+}
+
+.vpn-box-icon.icon-purple {
+  background: rgba(147, 51, 234, 0.15);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  color: #a855f7;
+}
+
+.vpn-box-icon.icon-pink {
+  background: rgba(236, 72, 153, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  color: #ec4899;
+}
+
+.vpn-box-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 8px 0;
+}
+
+.vpn-box-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Section: How it works */
+.vpn-steps-section {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 100%;
+  margin: 20px auto 60px;
+  padding: 0 24px;
+  text-align: left;
+}
+
+.vpn-section-subheading {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: -16px 0 32px 0;
+}
+
+.vpn-steps-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.vpn-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step-badge-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.6);
+  z-index: 2;
+}
+
+.vpn-step-box {
+  width: 100%;
+  min-height: 150px;
+  background: rgba(11, 20, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.vpn-step-box:hover {
+  background: rgba(14, 25, 48, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+.step-icon {
+  color: #38bdf8;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 6px 0;
+}
+
+.step-desc {
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Bottom CTA Banner */
+.vpn-bottom-cta-section {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 100%;
+  margin: 10px auto 70px;
+  padding: 0 24px;
+}
+
+.vpn-cta-card {
+  background: linear-gradient(135deg, rgba(14, 28, 58, 0.85) 0%, rgba(7, 16, 36, 0.95) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 18px;
+  padding: 38px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cta-left {
+  flex: 1;
+  text-align: left;
+}
+
+.cta-heading {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.cta-subheading {
+  font-size: 14px;
+  color: #94a3b8;
+  margin: 0 0 24px 0;
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 250px;
+}
+
+.cta-check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+/* Responsive adjustments for Landing Page */
+@media (max-width: 1024px) {
+  .vpn-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vpn-steps-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .vpn-navbar {
+    padding: 14px 20px;
+  }
+  .vpn-nav-links {
+    display: none;
+  }
+  .vpn-hero-title {
+    font-size: 36px;
+  }
+  .vpn-globe-wrapper {
+    height: 380px;
+  }
+  .digital-globe-svg-container {
+    width: 300px;
+    height: 300px;
+  }
+  .floating-tag {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  .floating-hud-card {
+    display: none;
+  }
+  .vpn-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .vpn-steps-row {
+    grid-template-columns: 1fr;
+  }
+  .vpn-cta-card {
+    flex-direction: column;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .cta-left {
+    text-align: center;
+  }
+  .cta-right {
+    align-items: flex-start;
+  }
+}
+
