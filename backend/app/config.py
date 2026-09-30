@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     cors_origins: list[str] = [
         "http://localhost:5173",
         "http://localhost:3000",
-        "https://sih-160.vercel.app",
+        "https://vpn-sentine.vercel.app/",
     ]
 
     model_config = SettingsConfigDict(
