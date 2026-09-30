@@ -8,13 +8,17 @@ assessment → Reports.
 
 ```bash
 npm install
-cp .env.example .env   # point VITE_API_BASE_URL at your backend if not localhost:8000
+cp .env.example .env   # set VITE_API_URL=http://localhost:8000 for local dev
 npm run dev
 ```
 
 Runs at `http://localhost:5173`. Requires the backend running at the URL
-in `.env` (CORS is already open for localhost:5173 in the backend's
+in `.env` (CORS is already configured for `localhost:5173` in the backend's
 `app/config.py`).
+
+**Production (Vercel):** add `VITE_API_URL=https://<your-backend-domain>`
+in Vercel → Project → Settings → Environment Variables, then redeploy.
+
 
 ## What's real vs. what you'll need to extend
 

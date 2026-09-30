@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: vpn-analyzer-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./vpn_analyzer.db   # replace with a Render PostgreSQL URL for persistent storage
+      - key: PCAP_STORAGE_DIR
+        value: ./pcap_storage
+      - key: MODEL_PATH
+        value: ./ml_models/protocol_classifier.joblib
+      - key: PYTHON_VERSION
+        value: "3.11"

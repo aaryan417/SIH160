@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { api, createSyntheticPcapBlob } from "../api";
+import { api, createSyntheticPcapBlob, BASE_URL } from "../api";
 
 const STEPS = [
   { path: "/testbed", label: "1. Testbed" },
@@ -143,7 +143,7 @@ export default function Header({ onRefresh }) {
 
         <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "var(--text-secondary)", background: "rgba(255,255,255,0.04)", padding: "5px 10px", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-subtle)" }}>
           <span className={`pulse-dot ${apiOnline ? "online" : "offline"}`} />
-          <span>{apiOnline ? "8000 Online" : "Offline"}</span>
+          <span>{apiOnline ? `${new URL(BASE_URL).host} Online` : "Backend Offline"}</span>
         </div>
       </div>
     </header>

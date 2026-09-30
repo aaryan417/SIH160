@@ -1,4 +1,9 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+// Central API base URL.
+// In local development this falls back to http://localhost:8000.
+// In production (Vercel), set the environment variable VITE_API_URL to your
+// deployed FastAPI backend URL, e.g. https://vpn-analyzer-api.onrender.com
+export const BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {
